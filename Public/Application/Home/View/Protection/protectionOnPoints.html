@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+    <head lang="en">
+        <meta charset="UTF-8">
+        <title>阴极保护-测试点</title>
+
+        <script type="text/javascript" src="http://cdn.hcharts.cn/jquery/jquery-1.8.3.min.js"></script>
+        <script type="text/javascript" src="http://cdn.hcharts.cn/highcharts/highcharts.js"></script>
+        <script type="text/javascript" src="http://cdn.hcharts.cn/highcharts/exporting.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/js/bootstrap-table.js"></script>
+        <link rel="stylesheet" href="__PUBLIC__/css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="__PUBLIC__/css/bootstrap-table.css"/>
+        <link rel="stylesheet" href="__PUBLIC__/css/power.css"/>
+
+        <script type="text/javascript" src="__PUBLIC__/dateRangePicker/jquery.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/dateRangePicker/moment.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/dateRangePicker/daterangepicker.js"></script>
+        <link rel="stylesheet" type="text/css" href="__PUBLIC__/dateRangePicker/bootstrap.css" />
+        <link rel="stylesheet" type="text/css" href="__PUBLIC__/dateRangePicker/daterangepicker-bs3.css" />
+
+    </head>
+
+    <body>
+        <div class="title">
+            测试点测试数据
+        </div>
+
+        <div id="container" class="container">
+            <!--时间选择-->
+            <div>
+                <form id="form1" class="form" name="form1" method="post" action="{:U('Protection/protectionOnPoints')}">
+                    <span>选择线路:</span>
+                    <select id="line" name="line" class="input" onfocus="lineList()"></select>
+                    <span>选择区段:</span>
+                    <select id="subline" name="subline" class="input" onfocus="sublineList()"></select>
+                    <span>选择测试点:</span>
+                    <select id="point" name="point" class="input" onfocus="point()"></select>
+                    <span>选择起止时间:</span><input id="daterange" name="daterange">
+                    <input type="submit" value="查询">
+                    <span><a href="{:U('Protection/index')}"><input type="button" value="返回"></a></span>
+                </form>
+            </div>
+            <!--时间选择-->
+
+            <div id="chartV" class="chart"></div>
+            <div id="chartA" class="chart"></div>
+            <div id="tableContainer" class="tableContainer">
+                <div class="caption">测试点测量信息</div>
+                <table id="table" class="table_bordered"></table>
+            </div>
+
+        </div>
+
+        <script>
+            $(document).ready(function() {
+                $('input[name="daterange"]').daterangepicker();
+                var $jll = {$jll};
+                var key;
+                var i = 0;
+                for(key in $jll) {
+                    document.form1.line.options[i] = new Option($jll[key]['line_name'], $jll[key]['line_id']);
+                    i++;
+                }
+                document.form1.line.options[0].selected = true;
+
+                var sel = document.getElementById('line');
+                var selected_val = sel.options[sel.selectedIndex].value;
+                var $jls = {$jls};
+                i = 0;
+                for(key in $jls[selected_val]) {
+                    document.form1.subline.options[i] = new Option($jls[selected_val][key]['subline_name'], $jls[selected_val][key]['subline_id']);
+                    i++;
+                }
+                document.form1.subline.options[0].selected = true;
+
+                sel = document.getElementById('subline');
+                selected_val = sel.options[sel.selectedIndex].value;
+                var $jlp = {$jlp};
+                i = 0;
+                for(key in $jlp[selected_val]) {
+                    document.form1.point.options[i] = new Option($jlp[selected_val][key]['testpoint_no'], $jlp[selected_val][key]['testpoint_id']);
+                    i++;
+                }
+                document.form1.point.options[0].selected = true;
+
+                var $jtp = eval({$jtp});
+                var point_no = [];
+                var vdc_off = [];
+                var vdc_on = [];
+                var vac = [];
+                var idc = [];
+                var label = [];
+                for(i=0; i<$jtp.length; i++) {
+                    point_no.push($jtp[i]['point_no']);
+                    vdc_off.push($jtp[i]['vdc_off']);
+                    vdc_on.push($jtp[i]['vdc_on']);
+                    vac.push($jtp[i]['vac']);
+                    idc.push($jtp[i]['idc']);
+                    label.push($jtp[i]['label']);
+                }
+
+                $('#table').bootstrapTable({
+                    url:"",
+                    dataType: "json",
+                    pagination: false, //分页
+                    singleSelect: false,
+                    locale: "zh-US" , //表格汉化
+                    search: false, //显示搜索框
+                    sidePagination: "client", //服务端处理分页
+                    //uniqueId: "power_no",
+                    columns: [
+                        {
+                            title: '序号',
+                            field: 'label',
+                            align: 'center',
+                            valign: 'middle'
+                        },
+                        {
+                            title: '测试点编号',
+                            field: 'point_no',
+                            align: 'center',
+                            valign: 'middle'
+                        },
+                        {
+                            title: '测量设备ID',
+                            field: 'equip_id',
+                            align: 'center',
+                            valign: 'middle'
+                        },
+                        {
+                            title: '测量人员ID',
+                            field: 'tester_id',
+                            align: 'center',
+                            valign: 'middle'
+                        },
+                        {
+                            title: 'VDC_OFF(V)',
+                            field: 'vdc_off',
+                            align: 'center',
+                            valign: 'middle'
+                        },
+                        {
+                            title: 'VDC_ON(V)',
+                            field: 'vdc_on',
+                            align: 'center',
+                            valign: 'middle'
+                        },
+                        {
+                            title: 'VAC(V)',
+                            field: 'vac',
+                            align: 'center',
+                            valign: 'middle'
+                        },
+                        {
+                            title: '剩余电量(%)',
+                            field: 'battery',
+                            align: 'center',
+                            valign: 'middle'
+                        },
+                        {
+                            title: '测量时间',
+                            field: 'date',
+                            align: 'center',
+                            valign: 'middle'
+                        }
+                    ],
+                    data: $jtp
+                });
+                $('#chartV').highcharts({
+                    credits: {
+                        enabled: false
+                    },
+                    title: {
+                        text: '测试点直流电压折线图',
+                        x: -20 //center
+                    },
+                    xAxis: {
+                        categories: eval("["+label+"]")
+                    },
+                    yAxis: [
+                        {
+                            title: {
+                                text: '电压(V)'
+                            }
+                        }
+                    ],
+                    legend: {
+                        layout: 'vertical',
+                        align: 'right',
+                        verticalAlign: 'middle',
+                        borderWidth: 0
+                    },
+                    tooltip: {
+                        valueSuffix: 'V'
+                    },
+                    series: [{
+                        name: 'VDC_OFF',
+                        data: eval("["+vdc_off+"]")
+                    }, {
+                        name: 'VDC_ON',
+                        data: eval("["+vdc_on+"]")
+                    }
+                    ]
+                });
+                $('#chartA').highcharts({
+                    credits: {
+                        enabled: false
+                    },
+                    title: {
+                        text: '测试点交流电压折线图',
+                        x: -20 //center
+                    },
+                    xAxis: {
+                        categories: eval("["+label+"]")
+                    },
+                    yAxis: [
+                        {
+                            title: {
+                                text: '电压(V)'
+                            }
+                        }
+                    ],
+                    legend: {
+                        layout: 'vertical',
+                        align: 'right',
+                        verticalAlign: 'middle',
+                        borderWidth: 0
+                    },
+                    tooltip: {
+                        valueSuffix: 'V'
+                    },
+                    series: [{
+                        name: 'VAC',
+                        data: eval("["+vac+"]")
+                    }
+                    ]
+                });
+            });
+        </script>
+    </body>
+</html>

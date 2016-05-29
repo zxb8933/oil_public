@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+    <head lang="en">
+        <meta charset="UTF-8">
+        <title>阴极保护—区段</title>
+
+        <script type="text/javascript" src="http://cdn.hcharts.cn/jquery/jquery-1.8.3.min.js"></script>
+        <script type="text/javascript" src="http://cdn.hcharts.cn/highcharts/highcharts.js"></script>
+        <script type="text/javascript" src="http://cdn.hcharts.cn/highcharts/exporting.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/js/bootstrap-table.js"></script>
+        <link rel="stylesheet" href="__PUBLIC__/css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="__PUBLIC__/css/bootstrap-table.css"/>
+        <link rel="stylesheet" href="__PUBLIC__/css/power.css"/>
+
+        <script type="text/javascript" src="__PUBLIC__/dateRangePicker/jquery.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/dateRangePicker/moment.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/dateRangePicker/daterangepicker.js"></script>
+        <link rel="stylesheet" type="text/css" href="__PUBLIC__/dateRangePicker/bootstrap.css" />
+        <link rel="stylesheet" type="text/css" href="__PUBLIC__/dateRangePicker/daterangepicker-bs3.css" />
+
+
+    </head>
+    <body>
+        <div class="title">
+            区段各点阴极保护数据汇总
+        </div>
+
+        <div id="container" class="container">
+            <div>
+                <form id="form1" class="form" name="form1" method="post" action="{:U('Protection/protectionChart')}">
+                    <span>选择线路:</span>
+                    <select id="line" name="line" class="input"></select>
+                    <span>选择区段:</span>
+                    <select id="subline" name="subline" class="input"></select>
+
+                    <span>选择日期:</span>
+                    <input id="date" name="date">
+                    <!--<select id="month" name="month" class="input">-->
+                        <!--<option value="1">1月</option>-->
+                        <!--<option value="2">2月</option>-->
+                        <!--<option value="3">3月</option>-->
+                        <!--<option value="4">4月</option>-->
+                        <!--<option value="5">5月</option>-->
+                        <!--<option value="6">6月</option>-->
+                        <!--<option value="7">7月</option>-->
+                        <!--<option value="8">8月</option>-->
+                        <!--<option value="9">9月</option>-->
+                        <!--<option value="10">10月</option>-->
+                        <!--<option value="11">11月</option>-->
+                        <!--<option value="12">12月</option>-->
+                    <!--</select>-->
+
+                    <input type="submit" value="查询">
+                    <span><a href="{:U('Protection/index')}"><input type="button" value="返回"></a></span>
+                </form>
+            </div>
+
+            <div id="chartV" class="chart"></div>
+            <div id="chartA" class="chart"></div>
+            <div id="tableContainer" class="tableContainer">
+                <div class="caption">区段各测试点测量信息</div>
+                <table id="table" class="table_bordered"></table>
+            </div>
+        </div>
+
+        <script>
+            $(document).ready(function() {
+                $('input[name="date"]').daterangepicker({
+                    singleDatePicker: true
+                });
+                var $jll = {$jll};
+                var key;
+                var i = 0;
+                for(key in $jll) {
+                    document.form1.line.options[i] = new Option($jll[key]['line_name'], $jll[key]['line_id']);
+                    i++;
+                }
+                document.form1.line.options[0].selected = true;
+
+                var sel = document.getElementById('line');
+                var selected_val = sel.options[sel.selectedIndex].value;
+                var $jls = {$jls};
+                i = 0;
+                for(key in $jls[selected_val]) {
+                    document.form1.subline.options[i] = new Option($jls[selected_val][key]['subline_name'], $jls[selected_val][key]['subline_id']);
+                    i++;
+                }
+                document.form1.subline.options[0].selected = true;
+
+                var $jms = eval({$jms});
+                $('#table').bootstrapTable({
+                    url:"",
+                    dataType: "json",
+                    pagination: false, //分页
+                    singleSelect: false,
+                    locale: "zh-US" , //表格汉化
+                    search: false, //显示搜索框
+                    sidePagination: "client", //服务端处理分页
+                    //uniqueId: "power_no",
+                    columns: [
+                        {
+                            title: '序号',
+                            field: 'label',
+                            align: 'center',
+                            valign: 'middle'
+                        },
+                        {
+                            title: '测试点编号',
+                            field: 'point_no',
+                            align: 'center',
+                            valign: 'middle'
+                        },
+                        {
+                            title: '管顶埋深(m)',
+                            field: 'depth',
+                            align: 'center',
+                            valign: 'middle'
+                        },
+                        {
+                            title: 'VDC_OFF_MAX(V)',
+                            field: 'vdc_offmax',
+                            align: 'center',
+                            valign: 'middle'
+                        },
+                        {
+                            title: 'VDC_OFF_MIN(V)',
+                            field: 'vdc_offmin',
+                            align: 'center',
+                            valign: 'middle'
+                        },
+                        {
+                            title: 'VDC_ON_MAX(V)',
+                            field: 'vdc_onmax',
+                            align: 'center',
+                            valign: 'middle'
+                        },
+                        {
+                            title: 'VDC_ON_MIN(V)',
+                            field: 'vdc_onmin',
+                            align: 'center',
+                            valign: 'middle'
+                        },
+                        {
+                            title: 'IDC_MAX(mA)',
+                            field: 'idc_max',
+                            align: 'center',
+                            valign: 'middle'
+                        },
+                        {
+                            title: 'IDC_MIN(mA)',
+                            field: 'idc_min',
+                            align: 'center',
+                            valign: 'middle'
+                        },
+                        {
+                            title: '土壤电阻率(欧姆·米)',
+                            field: 'res',
+                            align: 'center',
+                            valign: 'middle'
+                        },
+                        {
+                            title: '阴极保护状态',
+                            field: 'state',
+                            align: 'center',
+                            valign: 'middle'
+                        },
+                        {
+                            title: '汇总日期',
+                            field: 'date',
+                            align: 'center',
+                            valign: 'middle'
+                        }
+                    ],
+                    data: $jms
+                });
+
+                var vdc_offmax = [];
+                var vdc_offmin = [];
+                var vdc_onmax = [];
+                var vdc_onmin = [];
+                var idc_max = [];
+                var idc_min = [];
+                var label = [];
+                //var depth = [];
+                //var res = [];
+                var date = [];
+                for(var i=0; i<$jms.length; i++) {
+                    label.push($jms[i]['label']);
+                    vdc_offmax.push($jms[i]['vdc_offmax']);
+                    vdc_offmin.push($jms[i]['vdc_offmin']);
+                    vdc_onmax.push($jms[i]['vdc_onmax']);
+                    vdc_onmin.push($jms[i]['vdc_onmin']);
+                    idc_max.push($jms[i]['idc_max']);
+                    idc_min.push($jms[i]['idc_min']);
+                    //depth.push($jms[i]['depth']);
+                    //.push($jms[i]['res']);
+                    date.push($jms[i]['date']);
+                }
+                $('#chartV').highcharts({
+                    credits: {
+                        enabled: false
+                    },
+                    title: {
+                        text: '区段各点直流电压折线图',
+                        x: -20 //center
+                    },
+                    xAxis: {
+                        categories: eval("["+label+"]")
+                    },
+                    yAxis: [
+                        {
+                            title: {
+                                text: '直流电压(V)'
+                            }
+                        }
+                    ],
+                    legend: {
+                        layout: 'vertical',
+                        align: 'right',
+                        verticalAlign: 'middle',
+                        borderWidth: 0
+                    },
+                    tooltip: {
+                        valueSuffix: 'V'
+                    },
+                    series: [{
+                            name: 'VDC_OFF_MAX',
+                            data: eval("["+vdc_offmax+"]")
+                        }, {
+                            name: 'VDC_OFF_MIN',
+                            data: eval("["+vdc_offmin+"]")
+                        }, {
+                            name: 'VDC_ON_MAX',
+                            data: eval("["+vdc_onmax+"]")
+                        }, {
+                            name: 'VDC_ON_MIN',
+                            data: eval("["+vdc_onmin+"]")
+                        }
+                    ]
+                });
+
+                $('#chartA').highcharts({
+                    credits: {
+                        enabled: false
+                    },
+                    title: {
+                        text: '区段各点交流电压折线图',
+                        x: -20 //center
+                    },
+                    xAxis: {
+                        categories: eval("["+label+"]")
+                    },
+                    yAxis: [
+                        {
+                            title: {
+                                text: '交流电压(V)'
+                            }
+                        }
+                    ],
+                    legend: {
+                        layout: 'vertical',
+                        align: 'right',
+                        verticalAlign: 'middle',
+                        borderWidth: 0
+                    },
+                    tooltip: {
+                        valueSuffix: 'V'
+                    },
+                    series: [{
+                            name: 'VAC_MAX',
+                            data: eval("["+vac_max+"]")
+                        }, {
+                            name: 'VAC_MIN',
+                            data: eval("["+idc_min+"]")
+                        }
+                    ]
+                });
+            });
+        </script>
+    </body>
+</html>

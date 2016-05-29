@@ -1,0 +1,106 @@
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
+<html lang="en">
+
+    <head>
+
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Bootstrap Login Form Template</title>
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
+        <link rel="stylesheet" href="/Public/Public/assets/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/Public/Public/assets/font-awesome/css/font-awesome.min.css">
+		<link rel="stylesheet" href="/Public/Public/assets/css/form-elements.css">
+        <link rel="stylesheet" href="/Public/Public/assets/css/style.css">
+
+        <link rel="shortcut icon" href="/Public/Public/assets/ico/favicon.png">
+        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/Public/Public/assets/ico/apple-touch-icon-144-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/Public/Public/assets/ico/apple-touch-icon-114-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/Public/Public/assets/ico/apple-touch-icon-72-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" href="/Public/Public/assets/ico/apple-touch-icon-57-precomposed.png">
+
+    </head>
+
+    <body>
+
+        <!-- Top content -->
+        <div class="top-content"  style="background-image:url('/Public/Public/assets/img/backgrounds/1.jpg')">
+        	
+            <div class="inner-bg">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-8 col-sm-offset-2 text">
+                            <h1><strong>数 据</strong> 管 控</h1>
+                            <div class="description">
+                            	<p>
+	                            	致力于用最好的方式展示数据，持续改进中····
+	                            	联系我们 <a href="http://azmind.com"><strong>AZMIND</strong></a>, 愿给你带来最好体验！
+                            	</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6 col-sm-offset-3 form-box">
+                        	<div class="form-top">
+                        		<div class="form-top-left">
+                        			<h3> 登 录 </h3>
+                            		<p>请输入你的 用户名 和 密码 :</p>
+                        		</div>
+                        		<div class="form-top-right">
+                        			<i class="fa fa-lock"></i>
+                        		</div>
+                            </div>
+                            <div class="form-bottom">
+			                    <form role="form" action="<?php echo U('Login/login');?>" method="post" class="login-form">
+			                    	<div class="form-group">
+			                    		<label class="sr-only" for="form-username">Username</label>
+			                        	<input type="text" name="no" placeholder="账号" class="form-username form-control" id="no">
+			                        </div>
+			                        <div class="form-group">
+			                        	<label class="sr-only" for="form-password">Password</label>
+			                        	<input type="password" name="psw" placeholder="密码" class="form-password form-control" id="psw">
+			                        </div>
+			                        <input name="code" width="0" height="0" class="captcha-text" placeholder="验证码" type="text">                  
+                                  <img width="30%" class="left15" height="50" alt="验证码" src="<?php echo U('Home/Login/verfiy',array());?>" title="点击刷新">  
+			                        <button type="submit" class="btn">登录</button>
+			                    </form>
+			                   
+		                    </div>
+                        </div>
+                    </div>
+              <!--       <div class="row">
+                        <div class="col-sm-6 col-sm-offset-3 social-login">
+                        	<h3>...or login with:</h3>
+                        	<div class="social-login-buttons">
+	                        	<a class="btn btn-link-2" href="#">
+	                        		<i class="fa fa-facebook"></i> Facebook
+	                        	</a>
+	                        	<a class="btn btn-link-2" href="#">
+	                        		<i class="fa fa-twitter"></i> Twitter
+	                        	</a>
+	                        	<a class="btn btn-link-2" href="#">
+	                        		<i class="fa fa-google-plus"></i> Google Plus
+	                        	</a>
+                        	</div>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+            
+        </div>
+
+
+        <!-- Javascript -->
+        <script src="/Public/Public/assets/js/jquery-1.11.1.min.js"></script>
+        <script src="/Public/Public/assets/bootstrap/js/bootstrap.min.js"></script>
+        <script src="/Public/Public/assets/js/jquery.backstretch.min.js"></script>
+        <script src="/Public/Public/assets/js/scripts.js"></script>
+        
+        <!--[if lt IE 10]>
+            <script src="/Public/Public//Public/Public/assets/js/placeholder.js"></script>
+        <![endif]-->
+    </body>
+
+</html>

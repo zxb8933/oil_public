@@ -1,0 +1,63 @@
+[ 2016-05-24T09:51:42+08:00 ] ::1 /Public/index.php/Home/Power/index.html
+ERR: 1449:The user specified as a definer ('root'@'127.0.0.1') does not exist
+ [ SQL语句 ] : SELECT getPowerListFunc(1) AS list
+
+[ 2016-05-24T09:59:57+08:00 ] ::1 /Public/index.php/Home/Power/index.html
+ERR: 1449:The user specified as a definer ('root'@'127.0.0.1') does not exist
+ [ SQL语句 ] : SELECT getPowerListFunc(1) AS list
+
+[ 2016-05-24T10:00:39+08:00 ] ::1 /Public/index.php/Home/Power/index.html
+ERR: 1449:The user specified as a definer ('root'@'127.0.0.1') does not exist
+ [ SQL语句 ] : SELECT getPowerListFunc(1) AS list
+
+[ 2016-05-24T10:01:02+08:00 ] ::1 /Public/index.php/Home/Power/index.html
+ERR: 1449:The user specified as a definer ('root'@'127.0.0.1') does not exist
+ [ SQL语句 ] : SELECT getPowerListFunc(1) AS list
+
+[ 2016-05-24T10:01:11+08:00 ] ::1 /Public/index.php/Home/Power/
+ERR: 1449:The user specified as a definer ('root'@'127.0.0.1') does not exist
+ [ SQL语句 ] : SELECT getPowerListFunc(1) AS list
+
+[ 2016-05-24T10:05:49+08:00 ] ::1 /Public/index.php/Home/Power/
+ERR: 1449:The user specified as a definer ('root'@'127.0.0.1') does not exist
+ [ SQL语句 ] : SELECT getPowerListFunc(1) AS list
+
+[ 2016-05-24T10:22:06+08:00 ] ::1 /Public/index.php/Home/Power/index.html
+ERR: 1449:The user specified as a definer ('root'@'127.0.0.1') does not exist
+ [ SQL语句 ] : SELECT getPowerListFunc(1) AS list
+
+[ 2016-05-24T11:00:47+08:00 ] ::1 /Public/index.php/Home/Power/index.html
+ERR: 1449:The user specified as a definer ('root'@'127.0.0.1') does not exist
+ [ SQL语句 ] : SELECT getPowerListFunc(1) AS list
+
+[ 2016-05-24T11:01:04+08:00 ] ::1 /Public/index.php/Home/Power/index.html
+ERR: 1449:The user specified as a definer ('root'@'127.0.0.1') does not exist
+ [ SQL语句 ] : SELECT getPowerListFunc(1) AS list
+
+[ 2016-05-24T11:02:57+08:00 ] ::1 /Public/index.php/Home/Power/
+ERR: 1449:The user specified as a definer ('root'@'127.0.0.1') does not exist
+ [ SQL语句 ] : SELECT getPowerListFunc(1) AS list
+
+[ 2016-05-24T11:03:04+08:00 ] ::1 /Public/index.php/Home/Power/index
+ERR: 1449:The user specified as a definer ('root'@'127.0.0.1') does not exist
+ [ SQL语句 ] : SELECT getPowerListFunc(1) AS list
+
+[ 2016-05-24T11:03:34+08:00 ] ::1 /Public/index.php/Home/Power/setpower
+ERR: 1449:The user specified as a definer ('root'@'127.0.0.1') does not exist
+ [ SQL语句 ] : SELECT getPowerListFunc(1) AS list
+
+[ 2016-05-24T11:04:22+08:00 ] ::1 /Public/index.php/Home/Productionr
+ERR: 无法加载控制器:Productionr
+
+[ 2016-05-24T11:04:27+08:00 ] ::1 /Public/index.php/Home/Production
+ERR: 无法加载控制器:Production
+
+[ 2016-05-24T11:04:43+08:00 ] ::1 /Public/index.php/Home/Protection
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'nePROC(1,1)' at line 2
+ [ SQL语句 ] : CALL getSublineFromLi
+                nePROC(1,1)
+
+[ 2016-05-24T15:24:50+08:00 ] ::1 /Public/index.php/Home/Protection/protectionCollection.html
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '0,1459238043,1459338043)' at line 1
+ [ SQL语句 ] : CALL getProtCollPROC(,0,1459238043,1459338043)
+

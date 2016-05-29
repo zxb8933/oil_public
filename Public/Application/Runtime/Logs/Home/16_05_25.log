@@ -1,0 +1,308 @@
+[ 2016-05-25T16:10:34+08:00 ] ::1 /Public/index.php/Home/Protection/protectionCollection.html
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '0,1459238043,1459338043)' at line 1
+ [ SQL语句 ] : CALL getProtCollPROC(,0,1459238043,1459338043)
+
+[ 2016-05-25T16:13:35+08:00 ] ::1 /Public/index.php/Home/Power/index.html
+ERR: 1449:The user specified as a definer ('root'@'127.0.0.1') does not exist
+ [ SQL语句 ] : SELECT getPowerListFunc(1) AS list
+
+[ 2016-05-25T16:13:38+08:00 ] ::1 /Public/index.php/Home/Protection/index.html
+ERR: 1449:The user specified as a definer ('root'@'127.0.0.1') does not exist
+ [ SQL语句 ] : CALL getSublineFromLinePROC(1,1)
+
+[ 2016-05-25T16:13:50+08:00 ] ::1 /Public/index.php/Home/Protection/index.html
+ERR: 1449:The user specified as a definer ('root'@'127.0.0.1') does not exist
+ [ SQL语句 ] : CALL getSublineFromLinePROC(1,1)
+
+[ 2016-05-25T17:01:26+08:00 ] ::1 /Public/index.php/Home/Power/index.html
+ERR: 1449:The user specified as a definer ('root'@'127.0.0.1') does not exist
+ [ SQL语句 ] : SELECT getPowerListFunc(1) AS list
+
+[ 2016-05-25T19:27:28+08:00 ] ::1 /Public/home/login
+ERR: 模板不存在:./Application/Home/View/Login/index.html
+
+[ 2016-05-25T19:28:33+08:00 ] ::1 /Public/home/assets/js/jquery.backstretch.min.js
+ERR: 无法加载控制器:Assets
+
+[ 2016-05-25T19:28:33+08:00 ] ::1 /Public/home/assets/js/scripts.js
+ERR: 无法加载控制器:Assets
+
+[ 2016-05-25T19:28:33+08:00 ] ::1 /Public/home/assets/js/jquery-1.11.1.min.js
+ERR: 无法加载控制器:Assets
+
+[ 2016-05-25T19:28:33+08:00 ] ::1 /Public/home/assets/bootstrap/js/bootstrap.min.js
+ERR: 无法加载控制器:Assets
+
+[ 2016-05-25T19:28:33+08:00 ] ::1 /Public/home/assets/js/jquery.backstretch.min.js
+ERR: 无法加载控制器:Assets
+
+[ 2016-05-25T19:28:33+08:00 ] ::1 /Public/home/assets/js/scripts.js
+ERR: 无法加载控制器:Assets
+
+[ 2016-05-25T19:31:02+08:00 ] ::1 /Public/home/assets/js/scripts.js
+ERR: 无法加载控制器:Assets
+
+[ 2016-05-25T19:31:02+08:00 ] ::1 /Public/home/assets/js/jquery.backstretch.min.js
+ERR: 无法加载控制器:Assets
+
+[ 2016-05-25T19:31:02+08:00 ] ::1 /Public/home/assets/js/jquery-1.11.1.min.js
+ERR: 无法加载控制器:Assets
+
+[ 2016-05-25T19:31:02+08:00 ] ::1 /Public/home/assets/bootstrap/js/bootstrap.min.js
+ERR: 无法加载控制器:Assets
+
+[ 2016-05-25T19:31:02+08:00 ] ::1 /Public/home/assets/js/jquery.backstretch.min.js
+ERR: 无法加载控制器:Assets
+
+[ 2016-05-25T19:31:02+08:00 ] ::1 /Public/home/assets/js/scripts.js
+ERR: 无法加载控制器:Assets
+
+[ 2016-05-25T19:31:08+08:00 ] ::1 /Public/home/assets/js/jquery-1.11.1.min.js
+ERR: 无法加载控制器:Assets
+
+[ 2016-05-25T19:31:08+08:00 ] ::1 /Public/home/assets/js/scripts.js
+ERR: 无法加载控制器:Assets
+
+[ 2016-05-25T19:31:08+08:00 ] ::1 /Public/home/assets/bootstrap/js/bootstrap.min.js
+ERR: 无法加载控制器:Assets
+
+[ 2016-05-25T19:31:08+08:00 ] ::1 /Public/home/assets/js/jquery.backstretch.min.js
+ERR: 无法加载控制器:Assets
+
+[ 2016-05-25T19:31:08+08:00 ] ::1 /Public/home/assets/js/jquery.backstretch.min.js
+ERR: 无法加载控制器:Assets
+
+[ 2016-05-25T19:31:08+08:00 ] ::1 /Public/home/assets/js/scripts.js
+ERR: 无法加载控制器:Assets
+
+[ 2016-05-25T19:31:11+08:00 ] ::1 /Public/home/assets/js/jquery.backstretch.min.js
+ERR: 无法加载控制器:Assets
+
+[ 2016-05-25T19:31:11+08:00 ] ::1 /Public/home/assets/js/scripts.js
+ERR: 无法加载控制器:Assets
+
+[ 2016-05-25T19:31:11+08:00 ] ::1 /Public/home/assets/js/jquery-1.11.1.min.js
+ERR: 无法加载控制器:Assets
+
+[ 2016-05-25T19:31:11+08:00 ] ::1 /Public/home/assets/bootstrap/js/bootstrap.min.js
+ERR: 无法加载控制器:Assets
+
+[ 2016-05-25T19:31:11+08:00 ] ::1 /Public/home/assets/js/jquery.backstretch.min.js
+ERR: 无法加载控制器:Assets
+
+[ 2016-05-25T19:31:11+08:00 ] ::1 /Public/home/assets/js/scripts.js
+ERR: 无法加载控制器:Assets
+
+[ 2016-05-25T19:31:17+08:00 ] ::1 /Public/home/assets/js/jquery.backstretch.min.js
+ERR: 无法加载控制器:Assets
+
+[ 2016-05-25T19:31:17+08:00 ] ::1 /Public/home/assets/bootstrap/js/bootstrap.min.js
+ERR: 无法加载控制器:Assets
+
+[ 2016-05-25T19:31:17+08:00 ] ::1 /Public/home/assets/js/jquery-1.11.1.min.js
+ERR: 无法加载控制器:Assets
+
+[ 2016-05-25T19:31:17+08:00 ] ::1 /Public/home/assets/js/scripts.js
+ERR: 无法加载控制器:Assets
+
+[ 2016-05-25T19:31:17+08:00 ] ::1 /Public/home/assets/bootstrap/js/bootstrap.min.js
+ERR: 无法加载控制器:Assets
+
+[ 2016-05-25T19:31:17+08:00 ] ::1 /Public/home/assets/js/jquery.backstretch.min.js
+ERR: 无法加载控制器:Assets
+
+[ 2016-05-25T19:31:17+08:00 ] ::1 /Public/home/assets/js/scripts.js
+ERR: 无法加载控制器:Assets
+
+[ 2016-05-25T19:35:48+08:00 ] ::1 /Public/home/assets/js/jquery.backstretch.min.js
+ERR: 无法加载控制器:Assets
+
+[ 2016-05-25T19:35:48+08:00 ] ::1 /Public/home/assets/js/scripts.js
+ERR: 无法加载控制器:Assets
+
+[ 2016-05-25T19:35:48+08:00 ] ::1 /Public/home/assets/bootstrap/js/bootstrap.min.js
+ERR: 无法加载控制器:Assets
+
+[ 2016-05-25T19:35:48+08:00 ] ::1 /Public/home/assets/js/jquery-1.11.1.min.js
+ERR: 无法加载控制器:Assets
+
+[ 2016-05-25T19:35:48+08:00 ] ::1 /Public/home/assets/bootstrap/js/bootstrap.min.js
+ERR: 无法加载控制器:Assets
+
+[ 2016-05-25T19:35:48+08:00 ] ::1 /Public/home/assets/js/jquery.backstretch.min.js
+ERR: 无法加载控制器:Assets
+
+[ 2016-05-25T19:35:48+08:00 ] ::1 /Public/home/assets/js/scripts.js
+ERR: 无法加载控制器:Assets
+
+[ 2016-05-25T19:35:51+08:00 ] ::1 /Public/home/assets/js/jquery.backstretch.min.js
+ERR: 无法加载控制器:Assets
+
+[ 2016-05-25T19:35:51+08:00 ] ::1 /Public/home/assets/js/scripts.js
+ERR: 无法加载控制器:Assets
+
+[ 2016-05-25T19:35:51+08:00 ] ::1 /Public/home/assets/bootstrap/js/bootstrap.min.js
+ERR: 无法加载控制器:Assets
+
+[ 2016-05-25T19:35:51+08:00 ] ::1 /Public/home/assets/js/jquery-1.11.1.min.js
+ERR: 无法加载控制器:Assets
+
+[ 2016-05-25T19:35:51+08:00 ] ::1 /Public/home/assets/bootstrap/js/bootstrap.min.js
+ERR: 无法加载控制器:Assets
+
+[ 2016-05-25T19:35:51+08:00 ] ::1 /Public/home/assets/js/jquery.backstretch.min.js
+ERR: 无法加载控制器:Assets
+
+[ 2016-05-25T19:35:51+08:00 ] ::1 /Public/home/assets/js/scripts.js
+ERR: 无法加载控制器:Assets
+
+[ 2016-05-25T19:38:00+08:00 ] ::1 /Public/home/assets/js/jquery-1.11.1.min.js
+ERR: 无法加载控制器:Assets
+
+[ 2016-05-25T19:38:00+08:00 ] ::1 /Public/home/assets/js/scripts.js
+ERR: 无法加载控制器:Assets
+
+[ 2016-05-25T19:38:00+08:00 ] ::1 /Public/home/assets/js/jquery.backstretch.min.js
+ERR: 无法加载控制器:Assets
+
+[ 2016-05-25T19:38:00+08:00 ] ::1 /Public/home/assets/bootstrap/js/bootstrap.min.js
+ERR: 无法加载控制器:Assets
+
+[ 2016-05-25T19:38:00+08:00 ] ::1 /Public/home/assets/js/jquery.backstretch.min.js
+ERR: 无法加载控制器:Assets
+
+[ 2016-05-25T19:38:00+08:00 ] ::1 /Public/home/assets/js/scripts.js
+ERR: 无法加载控制器:Assets
+
+[ 2016-05-25T19:38:02+08:00 ] ::1 /Public/home/assets/js/jquery-1.11.1.min.js
+ERR: 无法加载控制器:Assets
+
+[ 2016-05-25T19:38:02+08:00 ] ::1 /Public/home/assets/js/jquery.backstretch.min.js
+ERR: 无法加载控制器:Assets
+
+[ 2016-05-25T19:38:02+08:00 ] ::1 /Public/home/assets/js/scripts.js
+ERR: 无法加载控制器:Assets
+
+[ 2016-05-25T19:38:03+08:00 ] ::1 /Public/home/assets/bootstrap/js/bootstrap.min.js
+ERR: 无法加载控制器:Assets
+
+[ 2016-05-25T19:38:03+08:00 ] ::1 /Public/home/assets/js/jquery.backstretch.min.js
+ERR: 无法加载控制器:Assets
+
+[ 2016-05-25T19:38:03+08:00 ] ::1 /Public/home/assets/js/scripts.js
+ERR: 无法加载控制器:Assets
+
+[ 2016-05-25T19:38:13+08:00 ] ::1 /Public/home/assets/js/jquery.backstretch.min.js
+ERR: 无法加载控制器:Assets
+
+[ 2016-05-25T19:38:13+08:00 ] ::1 /Public/home/assets/js/scripts.js
+ERR: 无法加载控制器:Assets
+
+[ 2016-05-25T19:38:13+08:00 ] ::1 /Public/home/assets/bootstrap/js/bootstrap.min.js
+ERR: 无法加载控制器:Assets
+
+[ 2016-05-25T19:38:13+08:00 ] ::1 /Public/home/assets/js/jquery-1.11.1.min.js
+ERR: 无法加载控制器:Assets
+
+[ 2016-05-25T19:38:13+08:00 ] ::1 /Public/home/assets/bootstrap/js/bootstrap.min.js
+ERR: 无法加载控制器:Assets
+
+[ 2016-05-25T19:38:13+08:00 ] ::1 /Public/home/assets/js/jquery.backstretch.min.js
+ERR: 无法加载控制器:Assets
+
+[ 2016-05-25T19:38:13+08:00 ] ::1 /Public/home/assets/js/scripts.js
+ERR: 无法加载控制器:Assets
+
+[ 2016-05-25T19:39:25+08:00 ] ::1 /Public/home/assets/js/jquery.backstretch.min.js
+ERR: 无法加载控制器:Assets
+
+[ 2016-05-25T19:39:25+08:00 ] ::1 /Public/home/assets/js/scripts.js
+ERR: 无法加载控制器:Assets
+
+[ 2016-05-25T19:39:25+08:00 ] ::1 /Public/home/assets/bootstrap/js/bootstrap.min.js
+ERR: 无法加载控制器:Assets
+
+[ 2016-05-25T19:39:25+08:00 ] ::1 /Public/home/assets/js/jquery-1.11.1.min.js
+ERR: 无法加载控制器:Assets
+
+[ 2016-05-25T19:39:25+08:00 ] ::1 /Public/home/assets/bootstrap/js/bootstrap.min.js
+ERR: 无法加载控制器:Assets
+
+[ 2016-05-25T19:39:25+08:00 ] ::1 /Public/home/assets/js/jquery.backstretch.min.js
+ERR: 无法加载控制器:Assets
+
+[ 2016-05-25T19:39:25+08:00 ] ::1 /Public/home/assets/js/scripts.js
+ERR: 无法加载控制器:Assets
+
+[ 2016-05-25T19:41:50+08:00 ] ::1 /Public/home/css/bootstrap.min.css
+ERR: 无法加载控制器:Css
+
+[ 2016-05-25T19:41:50+08:00 ] ::1 /Public/home/assets/js/jquery-1.11.1.min.js
+ERR: 无法加载控制器:Assets
+
+[ 2016-05-25T19:41:51+08:00 ] ::1 /Public/home/assets/js/jquery.backstretch.min.js
+ERR: 无法加载控制器:Assets
+
+[ 2016-05-25T19:41:51+08:00 ] ::1 /Public/home/assets/bootstrap/js/bootstrap.min.js
+ERR: 无法加载控制器:Assets
+
+[ 2016-05-25T19:41:51+08:00 ] ::1 /Public/home/assets/js/scripts.js
+ERR: 无法加载控制器:Assets
+
+[ 2016-05-25T19:41:51+08:00 ] ::1 /Public/home/assets/js/jquery.backstretch.min.js
+ERR: 无法加载控制器:Assets
+
+[ 2016-05-25T19:41:51+08:00 ] ::1 /Public/home/assets/js/scripts.js
+ERR: 无法加载控制器:Assets
+
+[ 2016-05-25T19:45:50+08:00 ] ::1 /Public/home/assets/js/scripts.js
+ERR: 无法加载控制器:Assets
+
+[ 2016-05-25T19:45:50+08:00 ] ::1 /Public/home/assets/js/jquery.backstretch.min.js
+ERR: 无法加载控制器:Assets
+
+[ 2016-05-25T19:45:50+08:00 ] ::1 /Public/home/assets/bootstrap/js/bootstrap.min.js
+ERR: 无法加载控制器:Assets
+
+[ 2016-05-25T19:45:50+08:00 ] ::1 /Public/home/assets/js/jquery-1.11.1.min.js
+ERR: 无法加载控制器:Assets
+
+[ 2016-05-25T19:45:50+08:00 ] ::1 /Public/home/assets/bootstrap/js/bootstrap.min.js
+ERR: 无法加载控制器:Assets
+
+[ 2016-05-25T19:45:50+08:00 ] ::1 /Public/home/assets/js/jquery.backstretch.min.js
+ERR: 无法加载控制器:Assets
+
+[ 2016-05-25T19:45:50+08:00 ] ::1 /Public/home/assets/js/scripts.js
+ERR: 无法加载控制器:Assets
+
+[ 2016-05-25T19:55:03+08:00 ] ::1 /Public/home/assets/css/font-awesome.min.css
+ERR: 无法加载控制器:Assets
+
+[ 2016-05-25T19:55:03+08:00 ] ::1 /Public/home/assets/css/bootstrap.min.css
+ERR: 无法加载控制器:Assets
+
+[ 2016-05-25T19:55:03+08:00 ] ::1 /Public/home/assets/css/form-elements.css
+ERR: 无法加载控制器:Assets
+
+[ 2016-05-25T19:55:03+08:00 ] ::1 /Public/home/assets/js/jquery-1.11.1.min.js
+ERR: 无法加载控制器:Assets
+
+[ 2016-05-25T19:55:03+08:00 ] ::1 /Public/home/assets/js/scripts.js
+ERR: 无法加载控制器:Assets
+
+[ 2016-05-25T19:55:03+08:00 ] ::1 /Public/home/assets/js/jquery.backstretch.min.js
+ERR: 无法加载控制器:Assets
+
+[ 2016-05-25T19:55:03+08:00 ] ::1 /Public/home/assets/bootstrap/js/bootstrap.min.js
+ERR: 无法加载控制器:Assets
+
+[ 2016-05-25T19:55:03+08:00 ] ::1 /Public/home/assets/css/style.css
+ERR: 无法加载控制器:Assets
+
+[ 2016-05-25T19:55:03+08:00 ] ::1 /Public/home/assets/js/jquery.backstretch.min.js
+ERR: 无法加载控制器:Assets
+
+[ 2016-05-25T19:55:03+08:00 ] ::1 /Public/home/assets/js/scripts.js
+ERR: 无法加载控制器:Assets
+

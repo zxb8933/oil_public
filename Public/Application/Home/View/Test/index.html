@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script type="text/javascript" src="http://cdn.hcharts.cn/jquery/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="http://cdn.hcharts.cn/highcharts/highcharts.js"></script>
+    <script type="text/javascript" src="http://cdn.hcharts.cn/highcharts/exporting.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/js/bootstrap-table.js"></script>
+    <link rel="stylesheet" href="__PUBLIC__/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="__PUBLIC__/css/bootstrap-table.css"/>
+    <link rel="stylesheet" href="__PUBLIC__/css/power.css"/>
+
+    <script type="text/javascript" src="__PUBLIC__/dateRangePicker/jquery.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/dateRangePicker/moment.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/dateRangePicker/daterangepicker.js"></script>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/dateRangePicker/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/dateRangePicker/daterangepicker-bs3.css" />
+</head>
+<body>
+<div id="pie"></div>
+<script>
+$(function () {
+var chart;
+var totalMoney=50000
+$(document).ready(function() {
+//    $('#pie').highcharts({
+//        /**
+//         * 饼状图
+//         */
+//        pie:{
+//// 是否允许扇区点击
+//            allowPointSelect: true,
+//// 点击后，滑开的距离
+//            slicedOffset: 5,
+//// 饼图的中心坐标
+//            center: [100, 80],
+//// 饼图的大小
+//            size: 100,
+//// 数据标签
+//            dataLabels: {
+//// 是否允许标签
+//                enabled: true,
+//// 标签与图像元素之间的间距
+//                distance: 10
+//            },
+//// 数据点的点击事件
+//            events:{
+//                click: function(event){
+////alert('The bar was clicked, and you can add any other functions.');
+//                }
+//            },
+//// 是否忽略隐藏的项
+//            ignoreHiddenPoint: true,
+//// 当具体的数据点被点击时的事件响应函数。如果不需要事件响应，可以删除。
+//            point:{
+//                events:{
+//                    click: function(){
+////alert('This point on the line was clicked. You can and any other functions.');
+//                    }
+//                }
+//            },
+//// 是否在图注中显示。
+//            showInLegend: false,
+//// 调整图像顺序关系
+//            zIndex: 0,
+//            series: [{
+//                type: 'pie',
+//                name: '水果总消耗量',
+//                data: [{
+//                    name: 'Jane',
+//                    y: 13,
+//                    color: '#4572A7' // Jane's color
+//                }, {
+//                    name: 'John',
+//                    y: 23,
+//                    color: '#AA4643' // John's color
+//                }, {
+//                    name: 'Joe',
+//                    y: 19,
+//                    color: '#89A54E' // Joe's color
+//                }]
+//            }]
+//        }
+//
+//    })
+    $('#pie').highcharts({
+        chart: {
+            type: 'pie'
+        },
+        title: {
+            text: '管道阴极保护测试数据汇总图',
+            x: -20 //center
+        },
+        plotOptions: {
+            pie: {
+                size: 80,
+                innerSize: 20,
+                color: {
+                    'red',
+                    'blue',
+                    'green',
+                    'yellow',
+                    'gray'
+                },
+                dataLabels: {
+                    enabled: true,
+                    distance: 15,//通过设置这个属性，将每个小饼图的显示名称和每个饼图重叠
+                    style: {
+                        fontWeight: 'bold',
+                        fontSize: '10px',
+                        lineHeight: '10px'
+                    },
+                    formatter: function() {
+                        return this.y+'%';
+                    }
+                }
+            }
+        },
+        legend: {
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'middle',
+            borderWidth: 0
+        },
+        series: [{//设置每小个饼图的颜色、名称、百分比
+            type: 'pie',
+            name: 'browser share',
+            data: [
+                ['Firefox',45.0],
+                ['IE',26.8],
+                {
+                    name: 'Chrome',
+                    y: 12.8,
+                    sliced: true,
+                    selected: true
+                }
+                ['Safari',8.5],
+                ['Opera',6.2],
+                ['Others',0.7]
+            ]
+        }]
+    });
+})
+
+
+
+})
+</script>
+</body>
+</html>

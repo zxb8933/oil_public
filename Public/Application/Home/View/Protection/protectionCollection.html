@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+    <head lang="en">
+        <meta charset="UTF-8">
+        <title>阴极保护-汇总</title>
+
+        <script type="text/javascript" src="http://cdn.hcharts.cn/jquery/jquery-1.8.3.min.js"></script>
+        <script type="text/javascript" src="http://cdn.hcharts.cn/highcharts/highcharts.js"></script>
+        <script type="text/javascript" src="http://cdn.hcharts.cn/highcharts/exporting.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/js/bootstrap-table.js"></script>
+        <link rel="stylesheet" href="__PUBLIC__/css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="__PUBLIC__/css/bootstrap-table.css"/>
+        <link rel="stylesheet" href="__PUBLIC__/css/power.css"/>
+
+        <script type="text/javascript" src="__PUBLIC__/dateRangePicker/jquery.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/dateRangePicker/moment.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/dateRangePicker/daterangepicker.js"></script>
+        <link rel="stylesheet" type="text/css" href="__PUBLIC__/dateRangePicker/bootstrap.css" />
+        <link rel="stylesheet" type="text/css" href="__PUBLIC__/dateRangePicker/daterangepicker-bs3.css" />
+
+    </head>
+
+    <body>
+        <div class="title">
+            管道保护率
+        </div>
+        <div id="container" class="container">
+            <div>
+                <form id="form1" class="form" name="form1" method="post" action="{:U('Protection/protectionCollection')}">
+                    <span>选择线路:</span>
+                    <select id="line" name="line" class="input" ></select>
+
+                    <span>选择日期:</span>
+                    <input id="date" name="date">
+                    <!--改成按天选择日期-->
+                    <!--<select id="month" name="month" class="input">-->
+                        <!--<option value="1">1月</option>-->
+                        <!--<option value="2">2月</option>-->
+                        <!--<option value="3">3月</option>-->
+                        <!--<option value="4">4月</option>-->
+                        <!--<option value="5">5月</option>-->
+                        <!--<option value="6">6月</option>-->
+                        <!--<option value="7">7月</option>-->
+                        <!--<option value="8">8月</option>-->
+                        <!--<option value="9">9月</option>-->
+                        <!--<option value="10">10月</option>-->
+                        <!--<option value="11">11月</option>-->
+                        <!--<option value="12">12月</option>-->
+                    <!--</select>-->
+
+                    <input type="submit" value="查询">
+                    <span><a href="{:U('Protection/index')}"><input type="button" value="返回"></a></span>
+                </form>
+            </div>
+
+            <div id="pie" class="chart"></div>
+            <div id="tableContainer" class="tableContainer">
+                <div class="caption">管道保护状态汇总表</div>
+                <table id="table" class="table_bordered"></table>
+            </div>
+        </div>
+        <script>
+            $(document).ready(function() {
+                $('input[name="date"]').daterangepicker({
+                    singleDatePicker: true
+                });
+
+                var $jll = {$jll};
+                var key;
+                var i = 0;
+                for(key in $jll) {
+                    document.form1.line.options[i] = new Option($jll[key]['line_name'], $jll[key]['line_id']);
+                    i++;
+                }
+                document.form1.line.options[0].selected = true;
+
+                var $jc = {$jc};
+                var $jp = {$jp};
+                var data = [];//[ ['过保护',$jp['over']], ['欠保护',$jp['low']], ['正常保护',$jp['right']], ['无数据',$jp['error']] ];
+                for(key in $jp) {
+                    if(!$jp[key]) {
+                        continue;
+                    }
+                    else {
+                        data.push([key, $jp[key]]);
+                    }
+                }
+
+                if($jp['over']) {
+                    data.push(['过保护', $jp['over']]);
+                }
+
+
+                $('#table').bootstrapTable({
+                    url:"",
+                    dataType: "json",
+                    pagination: false, //分页
+                    singleSelect: false,
+                    locale: "zh-US" , //表格汉化
+                    search: false, //显示搜索框
+                    sidePagination: "client", //服务端处理分页
+                    //uniqueId: "power_no",
+                    columns: [
+                        {
+                            title: '管道区段',
+                            field: 'subline_name',
+                            align: 'center',
+                            valign: 'middle'
+                        },
+                        {
+                            title: '测试点总数',
+                            field: 'point_num',
+                            align: 'center',
+                            valign: 'middle'
+                        },
+                        {
+                            title: '过保护点数',
+                            field: 'over_num',
+                            align: 'center',
+                            valign: 'middle'
+                        },
+                        {
+                            title: '欠保护点数',
+                            field: 'low_num',
+                            align: 'center',
+                            valign: 'middle'
+                        },
+                        {
+                            title: '正常保护点数',
+                            field: 'right_num',
+                            align: 'center',
+                            valign: 'middle'
+                        },
+                        {
+                            title: '最负电位(V)',
+                            field: 'vdc_offmin',
+                            align: 'center',
+                            valign: 'middle'
+                        },
+                        {
+                            title: '最正电位(V)',
+                            field: 'vdc_offmax',
+                            align: 'center',
+                            valign: 'middle'
+                        }
+                    ],
+                    data: $jc
+                });
+                $('#pie').highcharts({
+                    credits: {
+                        enabled: false
+                    },
+                    chart: {
+                        type: 'pie'
+                    },
+                    title: {
+                        text: '管道保护率汇总图',
+                        x: -20 //center
+                    },
+                    legend: {
+                        layout: 'vertical',
+                        align: 'left',
+                        backgroundColor: '#FFFFFF',
+                        float: true,
+                        verticalAlign: 'top',
+                        x: 90,
+                        y: 50,
+//                        labelFormatter: function(){
+//                            return this.name;
+//                        }
+                    },
+                    plotOptions: {
+                        pie: {
+                            size:'100%',
+                            borderWidth: 0,
+                            dataLabels: {
+                                enabled: true,
+                                color: '#000',
+                                distance: 15,//通过设置这个属性，将每个小饼图的显示名称和每个饼图重叠
+                                style: {
+                                    fontSize: '20px',
+                                    lineHeight: '20px'
+                                },
+                                formatter: function() {
+                                    return this.y+'%';
+                                }
+                            },
+                            padding:20
+                        }
+                    },
+                    tooltip: {
+                        valueSuffix: '%'
+                    },
+                    series: [{
+                        type: 'pie',
+                        name: '百分比',
+                        data: data
+//                        data:[{name:'over',y:65},{name:'low',y:35}]
+                    }]
+                });
+            });
+        </script>
+    </body>
+</html>
